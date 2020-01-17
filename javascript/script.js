@@ -1,4 +1,4 @@
-let movies = ["silver linings playbook", "jurassic park", "Frozen"];
+let movies = ["silver linings playbook", "jurassic park", "Frozen", "Moana"];
 
 window.onload = function() {
     for (var i = 0; i < movies.length; i++) {
@@ -10,15 +10,18 @@ window.onload = function() {
 
 $(document).ready(function() {
     function displayGifs(data) {
-        let gifDiv = $('<div>');
-        $("#gifs").append(gifDiv);
-        let gifImg = $('<img src="' + data.data[0].images.downsized_large.url + '">');
-        let gifRating = $()
-        $(gifDiv).append(gifImg);
+        for(var j = 0; j < 10; j++) {
+            let gifDiv = $('<div class="gifDiv">');
+            $("#gifs").append(gifDiv);
+            let gifImg = $('<img src="' + data.data[j].images.downsized_large.url + '">');
+            let gifRating = $('<p>Rating: ' + data.data[j].rating + '</p>')
+            console.log("success got data", data);
+            $(gifDiv).append(gifImg, gifRating); 
+        }
     };
     
     function searchGIFY(movie) {
-        var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + movie + "+movie&api_key=xNLXdGgCbMsJEGAkltPSxL0LL24n3Y4N&limit=10");
+        var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=xNLXdGgCbMsJEGAkltPSxL0LL24n3Y4N&limit=10");
         xhr.done(function(data) { 
             console.log("success got data", data);
             console.log(data.data[0].url); 
@@ -26,14 +29,12 @@ $(document).ready(function() {
         });
     };
     
-    //searchGIFY(movies[0]);
-    
     function resetScreen() {
-        $("#gifs").remove();
+        $(".gifDiv").remove();
     };
     
     $(".movie").on("click", function() {
-        //resetScreen();
+        resetScreen();
         var movieTitle = $(this).attr("id");
         searchGIFY(movieTitle);
     });

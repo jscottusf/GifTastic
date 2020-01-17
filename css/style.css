@@ -21,11 +21,12 @@ body {
 
 #gifs {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 320px 320px 320px;
 }
 
 img {
     width: 300px;
+    border-radius: 10px;
 }
 
 .push {
