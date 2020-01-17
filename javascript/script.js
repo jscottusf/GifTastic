@@ -13,11 +13,18 @@ $(document).ready(function() {
         for(var j = 0; j < 10; j++) {
             let gifDiv = $('<div class="gifDiv">');
             $("#gifs").append(gifDiv);
-            let gifImg = $('<img src="' + data.data[j].images.downsized_large.url + '">');
+            let gifImgStill = $('<img id="gif still" src="' + data.data[j].images.downsized_still.url + '">');
+            let gifImg = $('<img id="gif animate" src="' + data.data[j].images.downsized_large.url + '">');
             let gifRating = $('<p>Rating: ' + data.data[j].rating + '</p>')
             console.log("success got data", data);
-            $(gifDiv).append(gifImg, gifRating); 
+            $(gifDiv).append(gifImg, gifRating);
         }
+        // $(gifImg).on("click", function() {
+        //     $(this).append(gifImg);
+        // });
+        // $(gifImgStill).on("click", function() {
+        //     $(this).append(gifImgStill);
+        // });
     };
     
     function searchGIFY(movie) {
@@ -40,7 +47,14 @@ $(document).ready(function() {
     });
 });
 
-
+// $("#gif").on("click", function() {
+//     if (gifImgStill) {
+//         $(this).html(gifImg);
+//     }
+//     else if (gifImg) {
+//         $(this).html(gifImgStill);
+//     }
+// }); 
 
 // Search the OMDB API for the following movies, and append table rows for each
 //console.log(xhr.done.data[0]);
