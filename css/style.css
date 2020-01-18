@@ -16,7 +16,8 @@ body {
 }
 
 body {
-    background-color: lightgrey; 
+    background-color: slategray;
+    color: whitesmoke;
 }
 
 #gifs {

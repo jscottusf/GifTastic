@@ -1,0 +1,70 @@
+loadButtons();
+
+    // $("#new-movie").click(function(){
+    //     newMovie = $(".new-movie").val();
+    //     console.log(newMovie);
+    //     addNewMovie();
+    // });
+
+    // $(newgifButton).on("click", function() {
+    //     resetScreen();
+    //     movieTitle = $(this).attr("id");
+    //     searchGIFY(newMovie);
+    // });
+
+    function addNewMovie() {
+    //     //movies.push(newMovie);
+    //     searchGIFY(newMovie);
+    //     var newgifButton = $('<button type="button" id="' + newMovie + '" class="newmovie btn btn-info m-1"">' + newMovie + '</button>')
+    //     $("#buttons").append(newgifButton);
+    // }
+
+code that didn't work
+
+// function pushNewMovie() {
+    //     movies.push(newMovie);
+    //     // if (newMovie.length > 0) {
+    //     //     movie.push(newMovie);
+    //     // }
+    //}
+
+// $(gifImg).on("click", function() {
+        //     $(this).append(gifImg);
+        // });
+        // $(gifImgStill).on("click", function() {
+        //     $(this).append(gifImgStill);
+        // });
+
+//let gifImg = $('<img id="gif" class="animate" src="' + data.data[j].images.downsized_large.url + '">');
+
+// $("#gif").on("click", function() {
+//     if (gifImgStill) {
+//         $(this).html(gifImg);
+//     }
+//     else if (gifImg) {
+//         $(this).html(gifImgStill);
+//     }
+// }); 
+
+// Search the OMDB API for the following movies, and append table rows for each
+//console.log(xhr.done.data[0]);
+
+// function createRow(data) {
+//     var tRow = $("<tr>");
+//     var titleTd = $("<td>").text(data.Title);
+//     var yearTd = $("<td>").text(data.Year);
+//     var actorsTd = $("<td>").text(data.Actors);
+//     tRow.append(titleTd, yearTd, actorsTd);
+//     $("tbody").append(tRow);
+// };
+
+// function searchGIFY(movie) {
+//     var queryURL = "http://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=xNLXdGgCbMsJEGAkltPSxL0LL24n3Y4N&limit=10";
+//     $.ajax({
+//         url: queryURL,
+//         method: "GET"
+//     }).then(function(response) {
+//         //createRow(response);
+//         console.log(searchGIFY("saving private ryan"));
+//     });
+// };
