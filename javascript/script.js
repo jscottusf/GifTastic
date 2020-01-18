@@ -25,7 +25,7 @@ $(document).ready(function() {
     };
     
     function searchGIFY(movie) {
-        var xhr = $.get("http://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=xNLXdGgCbMsJEGAkltPSxL0LL24n3Y4N&limit=10");
+        var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=xNLXdGgCbMsJEGAkltPSxL0LL24n3Y4N&limit=10");
         xhr.done(function(data) { 
             console.log("success got data", data);
             console.log(data.data[0].url); 
