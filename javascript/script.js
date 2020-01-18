@@ -1,15 +1,17 @@
-let movies = ["Silver Linings Playbook", "Jurassic park", "Frozen", "Moana", "Malcolm X", "The Princess and the Frog", "Star Wars", "Up", "The Martian", "Saving Private Ryan", "Rick and Morty", "Back to the Future", "The Lion King", "Toy Story", "Forrest Gump", "The Great Gatsby", "The Pianist", "Schindler's List", "Joker", "The Dark Knight", "Catch Me if you Can", "Titanic", "Shrek"];
-let newMovie = "";
-
-window.onload = function() {
-    for (var i = 0; i < movies.length; i++) {
-        var gifButton = $('<button type="button" id="' + movies[i] + '" class="movie btn btn-info m-1"">' + movies[i] + '</button>')
-        $("#buttons").append(gifButton);
-    }
-    $("#form").html('<input class="form-control-sm new-movie" type="text"  placeholder="more movies..."><button type="button" class="query_btn btn m-1 btn-info btn-default btn-sm" id="new-movie">Add movie...</button>')
-};
-
 $(document).ready(function() {
+    let movies = ["Silver Linings Playbook", "Jurassic park", "Frozen", "Moana", "Malcolm X", "The Princess and the Frog", "Star Wars", "Up", "The Martian", "Saving Private Ryan", "Rick and Morty", "Back to the Future", "The Lion King", "Toy Story", "Forrest Gump", "The Great Gatsby", "The Pianist", "Schindler's List", "Joker", "The Dark Knight", "Catch Me if you Can", "Titanic", "Shrek"];
+    let newMovie = "";
+
+    function renderButtons() {
+        var buttonsDiv = $('<div class="buttons">');
+        $("#buttons").append(buttonsDiv);
+        $('<div class="buttons">');
+        for (var i = 0; i < movies.length; i++) {
+            var gifButton = $('<button type="button" id="' + movies[i] + '" class="movie btn btn-info m-1"">' + movies[i] + '</button>')
+            $(".buttons").append(gifButton);
+        }
+        $("#form").html('<input class="form-control-sm new-movie" type="text"  placeholder="more movies..."><button type="button" class="query_btn btn m-1 btn-info btn-default btn-sm" id="new-movie">Add movie...</button>')
+    };
     
     function displayGifs(data) {
         for(var j = 0; j < 10; j++) {
@@ -34,19 +36,28 @@ $(document).ready(function() {
     function resetScreen() {
         $(".gifDiv").remove();
     };
-    
-    $(".movie").on("click", function() {
+
+    function resetButtons() {
+        $(".buttons").remove();
+    };
+
+    renderButtons();
+
+    $("body").on("click", "#new-movie", function(){
+        resetButtons();
+        event.preventDefault();
+        newMovie = $(".new-movie").val().trim();
+        movies.push(newMovie);
+        console.log(newMovie);
+        renderButtons();
+        // button = $('<button type="button" id="' + newMovie + '" class="movie btn btn-info m-1"">' + newMovie + '</button>')
+        // $("#buttons-view").append(button);
+    });
+
+    $("body").on("click", ".movie", function() {
         resetScreen();
         var movieTitle = $(this).attr("id");
         searchGIFY(movieTitle);
-    });
-
-    $("#new-movie").click(function(){
-        newMovie = $(".new-movie").val();
-        console.log(newMovie);
-        movies.push(newMovie);
-        console.log(movies);
-
     });
 
     $('body').on('click', '.gif', function() {
