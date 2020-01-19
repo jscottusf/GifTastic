@@ -47,11 +47,11 @@ $(document).ready(function() {
           var release = response.Released;
           var plot = response.Plot;
           var movieDiv = $('<div class="movie">');
-          var titleDiv = $('<h1>' + title + '</h1>')
+          var titleDiv = $('<h2>' + title + '</h2>')
           var posterImg = $('<img src="' + image + '" width="200px">');
-          var ratedDiv = $('<p>Rating: ' + rated + '</p>');
-          var releaseDiv = $('<p>Release date: ' + release + '</p>');
-          var plotDiv = $('<p>Plot: ' + plot + '</p>');
+          var ratedDiv = $('<p><b>Rating: </b>' + rated + '</p>');
+          var releaseDiv = $('<p><b>Release date: </b>' + release + '</p>');
+          var plotDiv = $('<p><b>Plot: </b>' + plot + '</p>');
           $(movieDiv).append(titleDiv, posterImg, ratedDiv, releaseDiv, plotDiv);
           $("#movies-view").html(movieDiv);
       });
