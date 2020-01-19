@@ -7,10 +7,10 @@ $(document).ready(function() {
         $("#buttons").append(buttonsDiv);
         $('<div class="buttons">');
         for (var i = 0; i < movies.length; i++) {
-            var gifButton = $('<button type="button" id="' + movies[i] + '" class="movie btn btn-info m-1"">' + movies[i] + '</button>')
+            var gifButton = $('<button type="button" id="' + movies[i] + '" class="movie btn btn-dark m-1"">' + movies[i] + '</button>')
             $(".buttons").append(gifButton);
         }
-        $("#form").html('<input class="form-control-sm new-movie" type="text"  placeholder="more movies..."><button type="button" class="query_btn btn m-1 btn-info btn-default btn-sm" id="new-movie">Add movie...</button>')
+        $("#form").html('<input class="form-control-sm new-movie" type="text"  placeholder="more movies..."><button type="button" class="query_btn btn m-1 btn-dark btn-default btn-sm" id="new-movie">Add movie</button>')
     };
     
     function displayGifs(data) {
@@ -32,6 +32,30 @@ $(document).ready(function() {
             displayGifs(data);
         });
     };
+
+    function displayMovieInfo(film) {
+        var queryURL = "https://www.omdbapi.com/?t=" + film + "&apikey=74b7a217";
+        $.ajax({
+        url: queryURL,
+        method: "GET"
+        }).then(function(response) {
+          console.log(response);
+          console.log(response.Poster);
+          var title = response.Title;
+          var image = response.Poster;
+          var rated = response.Rated;
+          var release = response.Released;
+          var plot = response.Plot;
+          var movieDiv = $('<div class="movie">');
+          var titleDiv = $('<h1>' + title + '</h1>')
+          var posterImg = $('<img src="' + image + '" width="200px">');
+          var ratedDiv = $('<p>Rating: ' + rated + '</p>');
+          var releaseDiv = $('<p>Rating: ' + release + '</p>');
+          var plotDiv = $('<p>Plot: ' + plot + '</p>');
+          $(movieDiv).append(titleDiv, posterImg, ratedDiv, releaseDiv, plotDiv);
+          $("#movies-view").html(movieDiv);
+      });
+      }
     
     function resetScreen() {
         $(".gifDiv").remove();
@@ -42,6 +66,12 @@ $(document).ready(function() {
     };
 
     renderButtons();
+
+    $("body").on("keyup", ".new-movie", function(event) {
+        if (event.keyCode === 13) {
+            $("#new-movie").click();
+        }
+    });
 
     $("body").on("click", "#new-movie", function(){
         resetButtons();
@@ -58,6 +88,7 @@ $(document).ready(function() {
         resetScreen();
         var movieTitle = $(this).attr("id");
         searchGIFY(movieTitle);
+        displayMovieInfo(movieTitle);
     });
 
     $('body').on('click', '.gif', function() {

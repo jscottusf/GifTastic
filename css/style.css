@@ -9,6 +9,8 @@ body {
     margin: 0;
     padding: 0;
     margin-bottom: 60px;
+    background-image: url("../images/cinema.jpg");
+    background-size: 100% auto;
     /* Margin bottom by footer height */
     /* background-image: url("../images/wwii.jpg");
     background-size: 100% 100%;
@@ -16,18 +18,27 @@ body {
 }
 
 body {
-    background-color: slategray;
-    color: whitesmoke;
+    background-color: silver;
+}
+
+#movies-view {
+    background:rgba(255,255,255,0.5);
+    max-height: 600px;
+    border-radius: 15px;
 }
 
 #gifs {
     display: grid;
-    grid-template-columns: 320px 320px 320px;
+    grid-template-columns: 205px 205px 205px;
 }
 
 img {
-    width: 300px;
-    border-radius: 10px;
+    width: 200px;
+    border-radius: 5px;
+}
+
+.new-movie {
+    border-radius: 5px;
 }
 
 .push {
@@ -43,4 +54,33 @@ img {
     line-height: 60px; /* Vertically center the text there */
     background-color: #f5f5f5;
     text-align: center;
+}
+
+@media screen and (max-width: 980px) {
+    .container {
+        width: 100%;
+    }
+    
+    img {
+        width: 150px;
+    }
+
+    #gifs {
+        display: grid;
+        grid-template-columns: 155px 155px 155px;
+    }
+}
+  
+  /* max width 768px */
+  @media screen and (max-width: 768px) {
+    .container {
+        width: 100%;
+    }
+  }
+  
+  /* Max width 640px */
+  @media screen and (max-width: 640px) {
+    .container {
+        width: 100%;
+    }
 }
