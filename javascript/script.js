@@ -50,7 +50,7 @@ $(document).ready(function() {
           var titleDiv = $('<h1>' + title + '</h1>')
           var posterImg = $('<img src="' + image + '" width="200px">');
           var ratedDiv = $('<p>Rating: ' + rated + '</p>');
-          var releaseDiv = $('<p>Rating: ' + release + '</p>');
+          var releaseDiv = $('<p>Release date: ' + release + '</p>');
           var plotDiv = $('<p>Plot: ' + plot + '</p>');
           $(movieDiv).append(titleDiv, posterImg, ratedDiv, releaseDiv, plotDiv);
           $("#movies-view").html(movieDiv);
