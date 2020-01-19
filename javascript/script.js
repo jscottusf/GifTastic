@@ -48,7 +48,7 @@ $(document).ready(function() {
           var plot = response.Plot;
           var movieDiv = $('<div class="movie">');
           var titleDiv = $('<h2>' + title + '</h2>')
-          var posterImg = $('<img src="' + image + '" width="200px">');
+          var posterImg = $('<img id="poster" src="' + image + '" width="200px">');
           var ratedDiv = $('<p><b>Rating: </b>' + rated + '</p>');
           var releaseDiv = $('<p><b>Release date: </b>' + release + '</p>');
           var plotDiv = $('<p><b>Plot: </b>' + plot + '</p>');

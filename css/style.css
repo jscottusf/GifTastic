@@ -39,15 +39,16 @@ header {
     border-radius: 15px;
     overflow: hidden;
     max-height: 590px;
+    margin-bottom: 20px;
 }
 
 #gifs {
     display: grid;
-    grid-template-columns: 205px 205px 205px;
+    grid-template-columns: 255px 255px 255px;
 }
 
-img {
-    width: 200px;
+.gif {
+    width: 250px;
     border-radius: 5px;
 }
 
@@ -75,30 +76,104 @@ p {
 }
 
 @media screen and (max-width: 980px) {
+    body {
+        background-size: 200% auto;
+        background-position-y: top;
+        background-position-x: center; 
+    }
+    
+
     .container {
         width: 100%;
     }
-    
-    img {
+
+    #poster {
         width: 150px;
+    }
+    
+    .gif {
+        width: 250px;
     }
 
     #gifs {
         display: grid;
-        grid-template-columns: 155px 155px 155px;
+        grid-template-columns: 255px 255px;
     }
 }
   
   /* max width 768px */
   @media screen and (max-width: 768px) {
+    body {
+        background-size: 260% auto;
+        background-position-y: top;
+        background-position-x: center; 
+    }
+    
     .container {
         width: 100%;
+    }
+
+    .gif {
+        width: 200px;
+    }
+
+    #gifs {
+        display: grid;
+        grid-template-columns: 205px 205px;
     }
   }
   
   /* Max width 640px */
   @media screen and (max-width: 640px) {
+    body {
+        background-size: 350% auto;
+        background-position-y: top;
+        background-position-x: center; 
+    }
+    
     .container {
         width: 100%;
+    }
+
+    #poster {
+        float: left;
+        width: 100px;
+        margin-right: 5px;
+    }
+
+    .gif {
+        width: 250px;
+    }
+
+    #gifs {
+        display: grid;
+        grid-template-columns: 255px 255px;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    body {
+        background-size: 700% auto;
+        background-position-y: top;
+        background-position-x: center; 
+    }
+    
+    .container {
+        width: 100%;
+    }
+
+    #poster {
+        float: left;
+        width: 100px;
+        margin-right: 5px;
+    }
+
+    .gif {
+        width: 400px;
+    }
+
+    #gifs {
+        display: grid;
+        grid-template-columns: 405px;
     }
 }
