@@ -2,6 +2,7 @@ $(document).ready(function() {
     let movies = ["Silver Linings Playbook", "Jurassic park", "Frozen", "Moana", "Malcolm X", "The Princess and the Frog", "Star Wars", "Up", "The Martian", "Saving Private Ryan", "Rick and Morty", "Back to the Future", "The Lion King", "Toy Story", "Forrest Gump", "The Great Gatsby", "The Pianist", "Schindler's List", "Joker", "The Dark Knight", "Catch Me if you Can", "Titanic", "Shrek"];
     let newMovie = "";
 
+    //loop through movies array and append button for each
     function renderButtons() {
         var buttonsDiv = $('<div class="buttons">');
         $("#buttons").append(buttonsDiv);
@@ -13,6 +14,7 @@ $(document).ready(function() {
         $("#form").html('<input class="form-control-sm new-movie" type="text"  placeholder="more movies..."><button type="button" class="query_btn btn m-1 btn-dark btn-default btn-sm" id="new-movie">Add movie</button>')
     };
     
+    //loop through GIPHY data and append still gifs. function must run inside searchGIFY function
     function displayGifs(data) {
         for(var j = 0; j < 10; j++) {
             let gifDiv = $('<div class="gifDiv">');
@@ -24,6 +26,8 @@ $(document).ready(function() {
         }
     };
     
+    //access api data, use displayGifs function append gifs
+    //although we've been using ajax in class, the giphy documentation recommended xhr $.get / xhr.done function
     function searchGIFY(movie) {
         var xhr = $.get("https://api.giphy.com/v1/gifs/search?q=" + movie + "&api_key=xNLXdGgCbMsJEGAkltPSxL0LL24n3Y4N&limit=10");
         xhr.done(function(data) { 
@@ -33,6 +37,8 @@ $(document).ready(function() {
         });
     };
 
+    //using ajax to append movie title, poster, rating, release date, and plot.
+    //we did this activity in class and i decided to integrate it into my GifTastic program
     function displayMovieInfo(film) {
         var queryURL = "https://www.omdbapi.com/?t=" + film + "&apikey=74b7a217";
         $.ajax({
@@ -57,22 +63,27 @@ $(document).ready(function() {
       });
       }
     
+    //seset screen to load new gifs/movie info
     function resetScreen() {
         $(".gifDiv").remove();
     };
 
+    //reset buttons when new button is added
     function resetButtons() {
         $(".buttons").remove();
     };
 
+    //start program by rendering buttons
     renderButtons();
 
+    //add new movie when pressing enter key
     $("body").on("keyup", ".new-movie", function(event) {
         if (event.keyCode === 13) {
             $("#new-movie").click();
         }
     });
 
+    //add new movie
     $("body").on("click", "#new-movie", function(){
         resetButtons();
         event.preventDefault();
@@ -80,10 +91,9 @@ $(document).ready(function() {
         movies.push(newMovie);
         console.log(newMovie);
         renderButtons();
-        // button = $('<button type="button" id="' + newMovie + '" class="movie btn btn-info m-1"">' + newMovie + '</button>')
-        // $("#buttons-view").append(button);
     });
 
+    //on mpvie button click, display ten gifs and movie info
     $("body").on("click", ".movie", function() {
         resetScreen();
         var movieTitle = $(this).attr("id");
@@ -91,6 +101,7 @@ $(document).ready(function() {
         displayMovieInfo(movieTitle);
     });
 
+    //on gif click, swap out link information in order to animate gif (found this using google fu)
     $('body').on('click', '.gif', function() {
     	var src = $(this).attr("src");
       if($(this).hasClass('playing')){
