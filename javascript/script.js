@@ -52,7 +52,7 @@ $(document).ready(function() {
           var rated = response.Rated;
           var release = response.Released;
           var plot = response.Plot;
-          var movieDiv = $('<div class="movie">');
+          var movieDiv = $('<div class="movie-data">');
           var titleDiv = $('<h2>' + title + '</h2>')
           var posterImg = $('<img id="poster" src="' + image + '" width="200px">');
           var ratedDiv = $('<p><b>Rating: </b>' + rated + '</p>');
