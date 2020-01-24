@@ -20,7 +20,7 @@ $(document).ready(function() {
             let gifDiv = $('<div class="gifDiv">');
             $("#gifs").append(gifDiv);
             let gifImgStill = $('<img class="gif" src="' + data.data[j].images.fixed_height_still.url + '">');
-            let gifRating = $('<b>Rating: ' + data.data[j].rating + '</b>')
+            let gifRating = $('<div>Rating: ' + data.data[j].rating + '</div>')
             console.log("success got data", data);
             $(gifDiv).append(gifImgStill, gifRating);
         }
