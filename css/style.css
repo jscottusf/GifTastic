@@ -10,7 +10,7 @@ body {
     padding: 0;
     margin-bottom: 60px;
     background-image: url("../images/cinema.jpg");
-    background-size: 110% auto;
+    background-size: cover;
     background-position-y: top;
     background-position-x: center; 
     /* Margin bottom by footer height */
@@ -78,13 +78,6 @@ p {
 }
 
 @media screen and (max-width: 980px) {
-    body {
-        background-size: 200% auto;
-        background-position-y: top;
-        background-position-x: center; 
-    }
-    
-
     .container {
         width: 100%;
     }
@@ -105,12 +98,6 @@ p {
   
   /* max width 768px */
   @media screen and (max-width: 768px) {
-    body {
-        background-size: 260% auto;
-        background-position-y: top;
-        background-position-x: center; 
-    }
-    
     .container {
         width: 100%;
     }
@@ -127,12 +114,6 @@ p {
   
   /* Max width 640px */
   @media screen and (max-width: 640px) {
-    body {
-        background-size: 350% auto;
-        background-position-y: top;
-        background-position-x: center; 
-    }
-    
     .container {
         width: 100%;
     }
@@ -154,12 +135,6 @@ p {
 }
 
 @media screen and (max-width: 500px) {
-    body {
-        background-size: 800% auto;
-        background-position-y: top;
-        background-position-x: center; 
-    }
-    
     .container {
         width: 100%;
     }
